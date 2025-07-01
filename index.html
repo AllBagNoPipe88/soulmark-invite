@@ -9,27 +9,59 @@
       font-family: -apple-system, BlinkMacSystemFont, sans-serif;
       text-align: center;
       padding: 40px;
+      margin: 0;
+      background: linear-gradient(to bottom right, #3b82f6, #06b6d4); /* blue to teal */
+      color: white;
     }
+
+    h1 {
+      font-size: 36px;
+      margin-bottom: 20px;
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
+    }
+
+    p {
+      font-size: 18px;
+      margin-bottom: 16px;
+    }
+
     .invite-code {
       font-size: 24px;
       font-weight: bold;
-      margin: 20px 0;
-      background: #f1f1f1;
-      padding: 10px;
-      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 12px 20px;
+      border-radius: 12px;
       display: inline-block;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      color: white;
+      backdrop-filter: blur(6px);
+      border: 1px solid rgba(255,255,255,0.2);
     }
+
     .btn {
       font-size: 18px;
-      background: #34c759;
+      background: #f97316; /* orange */
       color: white;
-      padding: 12px 24px;
+      padding: 14px 28px;
       border: none;
       border-radius: 12px;
       cursor: pointer;
       text-decoration: none;
       display: inline-block;
-      margin-top: 20px;
+      margin-top: 25px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      transition: background 0.2s ease;
+    }
+
+    .btn:hover {
+      background: #ea580c;
+    }
+
+    #copied-message {
+      margin-top: 10px;
+      font-size: 14px;
+      color: #d1fae5;
     }
   </style>
 </head>
@@ -41,14 +73,13 @@
   <a class="btn" href="https://apps.apple.com/us/app/id6747580497"
     onclick="navigator.clipboard.writeText(document.getElementById('code').innerText)">
     Download SoulMark
-    </a>
+  </a>
 
   <script>
     function getInviteCode() {
       const params = new URLSearchParams(window.location.search);
       let code = params.get("code");
 
-      // Optional: fallback to path-based URL like /ABC123
       if (!code) {
         const match = window.location.pathname.match(/\/([A-Z0-9]{6})$/i);
         if (match) {
@@ -72,4 +103,3 @@
   </script>
 </body>
 </html>
-
