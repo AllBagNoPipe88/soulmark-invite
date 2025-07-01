@@ -38,7 +38,10 @@
   <p>Use this code in the SoulMark app to join the journey:</p>
   <div class="invite-code" id="code">Loading...</div>
   <p id="copied-message" style="display:none;">The code has been copied to your clipboard.</p>
-  <a class="btn" href="https://apps.apple.com/us/app/id6747580497">Download SoulMark</a>
+  <a class="btn" href="https://apps.apple.com/us/app/id6747580497"
+    onclick="navigator.clipboard.writeText(document.getElementById('code').innerText)">
+    Download SoulMark
+    </a>
 
   <script>
     function getInviteCode() {
